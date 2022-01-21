@@ -16,7 +16,7 @@ public class atividade01 {
           maior = vetor[i];
         }
     }  
-    System.out.print("\nO maior valor é: " + maior + "/n");
+    System.out.print("\nO maior valor é: " + maior + "\n");
     scan.close();   
   }
 }
