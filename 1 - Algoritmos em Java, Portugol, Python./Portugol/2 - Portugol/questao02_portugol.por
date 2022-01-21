@@ -5,7 +5,7 @@ programa {
 
 		/*Input de valores e checando o maior e menor*/
 		faca{
-		    escreva("Digite o ", contador,"ş valor: ")
+		    escreva("Digite o ", contador,"º valor: ")
 		    leia(valor)
 		    se(valor == -1){
 		        pare
@@ -31,7 +31,7 @@ programa {
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 560; 
+ * @POSICAO-CURSOR = 208; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

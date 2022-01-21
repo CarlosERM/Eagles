@@ -1,8 +1,8 @@
-programa{
+programa{
 	/*Uso de biblioteca para arredondamento*/
 	inclua biblioteca Matematica --> mat
 	
-	funcao inicio(){
+	funcao inicio(){
 
 		/*Declaração de variáveis*/
 		real etanol, gasolina, calculo = 0.0, arredondado
@@ -20,9 +20,9 @@ programa{
 
 		/*Verificando e imprimindo resultados*/
 		se( calculo > 0.7){
-			escreva("\nCom ", arredondado, "% de diferença compensa abastecer com gasolina")
+			escreva("\nCom ", arredondado, "% de diferença, compensa abastecer com gasolina")
 		}senao{
-			escreva("\nCom ", arredondado, "% de diferença compensa abastecer com etanol")
+			escreva("\nCom ", arredondado, "% de diferença, compensa abastecer com etanol")
 		}
 	}
 }
@@ -36,7 +36,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 159; 
+ * @POSICAO-CURSOR = 377; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

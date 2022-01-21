@@ -1,5 +1,3 @@
-
-
 numero = int(input("digite o primeiro numero:"))
 maior = numero
 menor = numero
