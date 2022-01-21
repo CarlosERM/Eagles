@@ -5,7 +5,7 @@
 - Allan Quiterio
 - Carlos Eduardo
 - Gustavo
-- Priscila
+- Priscila Ramos
 - Pedro Florêncio
 - Yan Stivaletti
 
