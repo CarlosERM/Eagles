@@ -1,0 +1,344 @@
+CREATE DATABASE DB;
+
+
+CREATE TABLE PROFESSOR (
+  nomeProfessor varchar(50) PRIMARY KEY,
+  dtnascimento date
+);
+
+CREATE TABLE TURMA (
+  nometurma varchar(50) PRIMARY KEY,
+  turno varchar(50) not null,
+  serie int,
+  professor varchar(50),
+  
+  CONSTRAINT professor_fk FOREIGN KEY (professor) REFERENCES PROFESSOR(nomeProfessor)
+);
+
+CREATE TABLE ALUNO (
+  matricula int PRIMARY KEY,
+  nome varchar(50) not null,
+  nomepai varchar(50),
+  nomemae varchar(50),
+  dtnascimento date,
+  dtmatricula date,
+  turma varchar(50),
+  sexo char,
+  
+  CONSTRAINT turma_fk FOREIGN KEY (turma) REFERENCES  TURMA(nometurma)
+);
+
+
+CREATE TABLE ESPECIALIDADE (
+  nomeEspecialidade varchar(50) PRIMARY KEY,
+  nomeProfessor varchar(50),
+  
+  CONSTRAINT prof_fk FOREIGN KEY (nomeProfessor) REFERENCES PROFESSOR(nomeProfessor)
+);
+
+INSERT INTO PROFESSOR (nomeProfessor,dtnascimento)
+VALUES
+  ('Seth','Aug 27, 2000'),
+  ('Mariko','Jun 18, 1999'),
+  ('Kane','May 22, 1942'),
+  ('Lila','Aug 29, 1900'),
+  ('Deirdre','Dec 11, 1987'),
+  ('Helen','Jun 24, 1995'),
+  ('Kelly','Jan 28, 1964'),
+  ('Sawyer','Mar 5, 1979'),
+  ('Cailin','Aug 10, 2001'),
+  ('Francis','May 1, 1983');
+
+
+INSERT INTO TURMA (nometurma,turno,serie,professor)
+VALUES
+	('A','Diurno',1,'Seth'),
+    ('B','Diurno',2,'Mariko'),
+    ('C','Diurno',3,'Kane'),
+    ('D','Diurno',4,'Lila'),
+    ('E','Diurno',5,'Deirdre'),
+    ('F','Diurno',6,'Helen'),
+    ('G','Diurno',7,'Kelly'),
+    ('H','Diurno',8,'Sawyer'),
+    ('I','Diurno',9,'Cailin'),
+    ('J','Diurno',10,'Francis');
+    
+ INSERT INTO ESPECIALIDADE (nomeEspecialidade,nomeProfessor)
+VALUES
+	('Historia I','Seth'),
+    ('Filosofia I','Seth'),
+    ('Sociologia II','Seth'),
+    ('Artes III','Seth'),
+    ('Gramática II','Mariko'),
+    ('Redação III','Mariko'),
+    ('Matematica I','Kane'),
+    ('Fisica III','Kane'),
+    ('Quimica II','Kane');
+    
+ INSERT INTO ALUNO  (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (1,'Keane','Buckminster','Dominique','Dec 9, 2022','Jul 2, 2022','A','M'),
+  (2,'Oleg','Tad','Hollee','Oct 18, 2022','Jun 22, 2022','A','M'),
+  (3,'Stewart','Hashim','Vanna','Dec 26, 2022','Jun 10, 2021','A','M'),
+  (4,'Sylvester','Talon','Raven','Dec 2, 2022','Nov 6, 2022','A','M'),
+  (5,'Alec','Norman','Marah','Dec 23, 2021','Sep 23, 2022','A','M'),
+  (6,'Brendan','Blaze','Raya','Jun 9, 2021','Jun 2, 2021','A','M'),
+  (7,'Derek','Cruz','Iona','Feb 8, 2022','Feb 4, 2021','A','M'),
+  (8,'Slade','Russell','Simone','Mar 15, 2022','Feb 23, 2021','A','M'),
+  (9,'Chandler','Kaseem','Gemma','Nov 20, 2022','Jan 2, 2022','A','M'),
+  (10,'Gabriel','Thomas','Katell','Feb 27, 2021','Mar 27, 2022','A','M');
+INSERT INTO ALUNO  (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (11,'Vaughan','Scott','Petra','Jan 19, 2023','Dec 25, 2021','A','M'),
+  (12,'Brenden','Malachi','Winifred','Aug 11, 2021','Aug 30, 2021','A','M'),
+  (13,'Burke','Sean','Kylee','Jun 25, 2022','Feb 7, 2022','A','M'),
+  (14,'Alfonso','Justin','Latifah','May 15, 2022','Jul 3, 2022','A','M'),
+  (15,'Julian','Zachery','Reagan','Mar 17, 2022','Oct 27, 2021','A','M'),
+  (16,'Jerome','Felix','Cassidy','Mar 24, 2021','May 10, 2022','A','M'),
+  (17,'Avram','Perry','Winter','Apr 6, 2022','Jan 21, 2022','A','M'),
+  (18,'Adam','Keegan','Doris','Nov 10, 2022','Feb 25, 2022','A','M'),
+  (19,'Griffith','Beau','Selma','Apr 23, 2021','May 5, 2022','A','M'),
+  (20,'Kenyon','Gary','Nicole','Aug 10, 2022','Jan 17, 2022','A','M');
+INSERT INTO ALUNO  (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (21,'Emery','Cain','Haley','Feb 14, 2022','Aug 17, 2021','A','M'),
+  (22,'Abbot','Samuel','Hyacinth','Sep 14, 2021','Oct 21, 2022','A','M'),
+  (23,'Brennan','Nicholas','Hedwig','May 23, 2021','May 3, 2021','A','M'),
+  (24,'Emery','Aidan','Justine','Aug 5, 2022','Aug 5, 2022','A','M'),
+  (25,'Driscoll','Brennan','Karly','Jun 23, 2021','Oct 7, 2021','A','M'),
+  (26,'Hu','Abbot','Hadley','Oct 16, 2021','Oct 15, 2021','A','M'),
+  (27,'Vance','Cooper','Odette','Jan 12, 2023','Mar 21, 2022','A','M'),
+  (28,'Vincent','Castor','Alfreda','Sep 23, 2021','Feb 3, 2021','A','M'),
+  (29,'Stone','Nero','Riley','Jan 22, 2023','Mar 4, 2022','A','M'),
+  (30,'Erasmus','Raymond','Brynn','Jun 30, 2021','Jul 6, 2021','A','M');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (31,'Aladdin','Gabriel','Sybill','Aug 23, 2022','Jan 16, 2023','A','M'),
+  (32,'Garrett','Ethan','Sonya','Aug 25, 2022','Jan 28, 2022','A','M'),
+  (33,'Christian','Kuame','Hyacinth','Dec 3, 2022','Nov 25, 2022','A','M'),
+  (34,'Walker','Jonas','Sandra','Nov 13, 2022','Oct 5, 2021','A','M'),
+  (35,'Wyatt','Elijah','Aphrodite','Dec 28, 2021','Apr 18, 2021','A','M'),
+  (36,'Cullen','Ryan','Imani','May 23, 2021','Nov 23, 2021','A','M'),
+  (37,'Walter','Preston','Yvette','May 6, 2022','Aug 17, 2021','A','M'),
+  (38,'Drew','Ray','Emma','Apr 17, 2021','Jul 15, 2021','A','M'),
+  (39,'Raymond','Tiger','Karina','Sep 21, 2022','Nov 25, 2022','A','M'),
+  (40,'Vance','Lee','Callie','Sep 4, 2021','Aug 15, 2021','A','M');
+INSERT INTO ALUNO  (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (41,'Peter','Sawyer','Astra','Apr 8, 2022','Mar 6, 2021','A','M'),
+  (42,'Samson','Calvin','Jeanette','Jan 28, 2022','Jan 17, 2022','A','M'),
+  (43,'Timon','Colby','Sopoline','Feb 16, 2021','Jan 1, 2022','A','M'),
+  (44,'Ferris','Lucius','Hilary','Apr 9, 2022','May 22, 2022','A','M'),
+  (45,'Aladdin','Cairo','Zia','Aug 1, 2022','Aug 23, 2022','A','M'),
+  (46,'Richard','Joseph','Molly','Dec 26, 2021','Apr 13, 2022','A','M'),
+  (47,'Yuli','Lawrence','Natalie','Jun 4, 2021','Apr 20, 2021','A','M'),
+  (48,'Allen','Martin','Meghan','Jun 28, 2021','Jul 8, 2022','A','M'),
+  (49,'Ahmed','Wang','Sydney','Feb 19, 2021','Aug 4, 2021','A','M'),
+  (50,'Raymond','Felix','Uma','Jul 6, 2021','Nov 30, 2022','A','M');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (51,'Laith','Gil','Moana','Apr 8, 2021','Aug 2, 2022','A','M'),
+  (52,'Uriah','Wyatt','Whilemina','Jun 13, 2022','Jun 5, 2022','A','M'),
+  (53,'Simon','Drake','Hadassah','Aug 20, 2021','Jul 30, 2021','A','M'),
+  (54,'Kuame','Harlan','Ebony','Sep 30, 2021','Nov 9, 2021','A','M'),
+  (55,'Galvin','Brian','Guinevere','Aug 9, 2022','Sep 10, 2021','A','M'),
+  (56,'Seth','Ray','Kameko','Aug 25, 2021','Jul 17, 2021','A','M'),
+  (57,'Denton','Fritz','Megan','Mar 1, 2021','Jul 30, 2021','A','M'),
+  (58,'Prescott','Benjamin','Emily','Nov 9, 2022','May 28, 2021','A','M'),
+  (59,'Clinton','Leroy','Shelby','Apr 10, 2022','Oct 29, 2022','A','M'),
+  (60,'Abraham','Branden','Leah','Aug 20, 2022','Dec 15, 2022','A','M');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (61,'Caleb','Eagan','Christine','Oct 3, 2021','Jan 22, 2022','A','M'),
+  (62,'Drew','Xenos','Kimberly','Sep 7, 2021','Jul 8, 2021','A','M'),
+  (63,'Gray','Kieran','Abigail','Dec 24, 2022','Dec 15, 2022','A','M'),
+  (64,'Colin','Plato','Heather','Jun 13, 2022','Oct 28, 2022','A','M'),
+  (65,'Rudyard','Thane','Liberty','Feb 5, 2022','Jul 4, 2021','A','M'),
+  (66,'Ronan','Arden','Brynne','Nov 3, 2022','Dec 2, 2021','A','M'),
+  (67,'Clarke','Fuller','Jacqueline','Dec 9, 2021','Jan 9, 2023','A','M'),
+  (68,'Quinlan','Gary','Kyra','Dec 21, 2022','Jul 31, 2022','A','M'),
+  (69,'Ignatius','Nathan','Basia','Dec 15, 2021','Sep 15, 2022','A','M'),
+  (70,'Channing','Erich','Shellie','Jul 24, 2022','Sep 29, 2022','A','M');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (71,'Owen','Paul','Kim','Jun 11, 2021','May 8, 2021','A','M'),
+  (72,'Baker','Alden','Alexandra','Jan 9, 2023','Dec 3, 2021','A','M'),
+  (73,'Stuart','Norman','Sarah','Feb 27, 2021','Jul 12, 2021','A','M'),
+  (74,'Jin','Jameson','Skyler','Mar 8, 2022','Jun 27, 2021','A','M'),
+  (75,'Brandon','Reece','Breanna','Dec 6, 2022','Jun 17, 2022','A','M'),
+  (76,'Elvis','Byron','Brenna','Jul 28, 2021','Dec 8, 2022','A','M'),
+  (77,'Damon','Fletcher','Lana','Aug 20, 2021','Mar 2, 2021','A','M'),
+  (78,'Jin','Ray','Colleen','Aug 22, 2021','Apr 21, 2022','A','M'),
+  (79,'Akeem','Wing','Callie','Nov 7, 2021','Aug 11, 2021','A','M'),
+  (80,'Luke','Walker','Renee','Feb 14, 2022','May 30, 2021','A','M');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (81,'Brady','Alfonso','Juliet','Jul 5, 2022','Aug 7, 2022','A','M'),
+  (82,'Kamal','Herrod','Kiara','Dec 22, 2021','Jun 17, 2022','A','M'),
+  (83,'Noble','Colton','Idona','Dec 25, 2022','Nov 2, 2021','A','M'),
+  (84,'Alexander','Connor','Ivory','Dec 7, 2021','Jun 22, 2021','A','M'),
+  (85,'Xenos','Beck','Piper','Jan 29, 2021','Sep 30, 2022','A','M'),
+  (86,'Porter','Graiden','Julie','Apr 8, 2022','Mar 2, 2022','A','M'),
+  (87,'Colin','Lance','Savannah','Aug 7, 2021','Sep 23, 2021','A','M'),
+  (88,'Cullen','Conan','Amelia','May 10, 2022','Mar 13, 2022','A','M'),
+  (89,'Carson','Channing','Rana','Jan 31, 2021','Nov 20, 2021','A','M'),
+  (90,'Fritz','Ethan','Aphrodite','Feb 19, 2022','Jul 26, 2021','A','M');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (91,'Jelani','Blake','Wilma','Aug 8, 2021','Apr 18, 2021','A','M'),
+  (92,'Aaron','Cade','Bertha','Oct 15, 2022','Aug 6, 2022','A','M'),
+  (93,'Ishmael','Finn','Lani','Mar 10, 2021','Nov 16, 2022','A','M'),
+  (94,'Abel','Kyle','Eleanor','Aug 19, 2021','Sep 17, 2022','A','M'),
+  (95,'Donovan','Richard','Victoria','Jun 14, 2021','Jul 20, 2022','A','M'),
+  (96,'Palmer','Lyle','Tatyana','Jan 23, 2023','Aug 17, 2022','A','M'),
+  (97,'Erasmus','Jerome','Sybil','Jun 11, 2021','Sep 25, 2022','A','M'),
+  (98,'Solomon','Dane','Cassandra','Mar 10, 2022','Dec 2, 2022','A','M'),
+  (99,'Lance','Hunter','Alice','May 14, 2022','May 19, 2022','A','M'),
+  (100,'Oren','Lucas','Jolene','Jan 1, 2023','Feb 23, 2022','A','M');
+  
+  INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (101,'Serina','Reuben','Aline','Apr 28, 2022','May 10, 2021','B','F'),
+  (102,'Kylie','Abbot','Grace','Mar 18, 2022','Jun 15, 2021','B','F'),
+  (103,'Heather','Joel','Medge','Sep 9, 2021','Jul 7, 2022','B','F'),
+  (104,'Rae','Thaddeus','Shellie','Sep 25, 2021','Jun 9, 2021','B','F'),
+  (105,'Tasha','Guy','Signe','Oct 8, 2022','Apr 3, 2022','B','F'),
+  (106,'Kiona','David','Gemma','Nov 26, 2022','Jan 30, 2022','B','F'),
+  (107,'Felicia','Cody','Natalie','Jul 21, 2021','Mar 13, 2021','B','F'),
+  (108,'Melissa','Kermit','Ifeoma','Jul 15, 2021','Dec 14, 2021','B','F'),
+  (109,'Ciara','Lawrence','Madeline','May 13, 2022','Apr 28, 2022','B','F'),
+  (110,'Katelyn','Judah','Quon','Jan 11, 2023','Mar 4, 2022','B','F');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (111,'Xena','Hakeem','Imelda','Jun 1, 2022','May 1, 2022','B','F'),
+  (112,'Miriam','Jordan','Alice','Jun 30, 2022','Oct 20, 2021','B','F'),
+  (113,'Rana','Victor','Desiree','Oct 3, 2022','Jan 30, 2021','B','F'),
+  (114,'Martha','Odysseus','Evangeline','Jul 9, 2021','Sep 25, 2022','B','F'),
+  (115,'Ursula','Brennan','Celeste','Apr 24, 2022','Jun 19, 2022','B','F'),
+  (116,'Olympia','Conan','Oprah','Nov 26, 2021','Jun 13, 2021','B','F'),
+  (117,'Kelly','Coby','Nomlanga','Apr 16, 2022','Apr 25, 2021','B','F'),
+  (118,'Miriam','Herman','Mallory','Feb 5, 2022','Jul 29, 2022','B','F'),
+  (119,'May','Gil','Ifeoma','Mar 4, 2022','Mar 5, 2021','B','F'),
+  (120,'Abigail','Neil','Abigail','May 30, 2021','Dec 28, 2021','B','F');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (121,'Idona','Cody','Quyn','Nov 6, 2022','Nov 24, 2022','B','F'),
+  (122,'Melinda','Declan','Jolie','Oct 20, 2022','Jan 11, 2022','B','F'),
+  (123,'Brielle','Basil','Demetria','Oct 31, 2021','Jun 13, 2021','B','F'),
+  (124,'Sybil','Cain','Mariam','Jun 7, 2021','Jan 29, 2021','B','F'),
+  (125,'Kelly','Yasir','Gisela','Jul 20, 2022','Nov 15, 2022','B','F'),
+  (126,'Jade','Cain','Amethyst','Jan 14, 2022','Feb 1, 2021','B','F'),
+  (127,'Iola','Zachary','Alexandra','May 24, 2022','Jan 8, 2023','B','F'),
+  (128,'Beatrice','Rudyard','Kirsten','Oct 1, 2022','Mar 16, 2022','B','F'),
+  (129,'Shelley','Adam','Sarah','Sep 18, 2022','Sep 2, 2022','B','F'),
+  (130,'Tana','Brett','Victoria','Mar 3, 2021','Sep 26, 2022','B','F');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (131,'Bethany','Sawyer','Kylan','Nov 28, 2021','Jun 25, 2022','B','F'),
+  (132,'Hadassah','Macon','Tara','Jun 14, 2021','Oct 19, 2021','B','F'),
+  (133,'Yuri','Bert','May','May 4, 2022','Nov 28, 2022','B','F'),
+  (134,'Uta','Flynn','Kylynn','Apr 13, 2022','Dec 7, 2021','B','F'),
+  (135,'Alfreda','Chase','Yvonne','Nov 16, 2021','Dec 25, 2021','B','F'),
+  (136,'Lacey','Geoffrey','Brielle','Jul 11, 2021','Jul 26, 2022','B','F'),
+  (137,'Mercedes','Burke','Brianna','Feb 3, 2022','Jan 29, 2022','B','F'),
+  (138,'Laura','Maxwell','Clementine','Jul 2, 2022','Dec 15, 2022','B','F'),
+  (139,'Yetta','Ivor','Chantale','Oct 27, 2022','Sep 18, 2021','B','F'),
+  (140,'Jolene','Gray','Keely','Jan 11, 2023','Apr 18, 2021','B','F');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (141,'Eliana','Raja','Halla','Aug 20, 2022','Apr 12, 2021','B','F'),
+  (142,'Samantha','Hop','Maya','Feb 13, 2022','Apr 10, 2021','B','F'),
+  (143,'Kathleen','Drake','Jasmine','Sep 18, 2022','Apr 17, 2021','B','F'),
+  (144,'Jorden','Harrison','Kay','Apr 29, 2022','Nov 25, 2021','B','F'),
+  (145,'Sonya','Joel','Eleanor','Dec 8, 2022','Oct 24, 2022','B','F'),
+  (146,'Rhiannon','Ezra','Wilma','May 29, 2021','Apr 23, 2021','B','F'),
+  (147,'May','Harlan','Wynne','Jul 12, 2021','Oct 3, 2021','B','F'),
+  (148,'Desiree','Ivan','Beverly','Oct 14, 2021','May 27, 2021','B','F'),
+  (149,'Debra','Tarik','Hollee','Aug 7, 2022','Jun 3, 2021','B','F'),
+  (150,'Tanisha','Harper','Maya','Mar 14, 2022','Apr 2, 2021','B','F');
+  
+  INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (151,'Aurora','Tyler','Hadley','Jan 17, 2023','Jun 3, 2021','C','F'),
+  (152,'Ursa','Nero','Brianna','Aug 16, 2021','Oct 7, 2022','C','F'),
+  (153,'Venus','Lewis','Dara','Jan 25, 2021','Feb 20, 2022','C','F'),
+  (154,'Kiona','Caldwell','Jessamine','Apr 18, 2022','Apr 20, 2021','C','F'),
+  (155,'Neve','Arsenio','Alika','Feb 26, 2022','Nov 23, 2021','C','F'),
+  (156,'Haley','Wang','Leah','May 21, 2021','Mar 21, 2021','C','F'),
+  (157,'Holly','Dorian','Penelope','Oct 20, 2022','May 2, 2021','C','F'),
+  (158,'Stephanie','George','Melodie','Nov 3, 2022','Feb 28, 2021','C','F'),
+  (159,'Fiona','Macaulay','Lois','Nov 10, 2021','Mar 13, 2022','C','F'),
+  (160,'Rhea','Lane','Naida','Mar 14, 2022','May 20, 2021','C','F');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (161,'Tanisha','Barrett','Fiona','Mar 21, 2021','Aug 15, 2022','C','F'),
+  (162,'Glenna','Alvin','Avye','Jul 22, 2021','Jun 27, 2021','C','F'),
+  (163,'Haviva','Brian','Madaline','Sep 16, 2022','Mar 29, 2022','C','F'),
+  (164,'Serena','Jin','Joelle','May 29, 2021','Mar 6, 2021','C','F'),
+  (165,'Cheyenne','Demetrius','Venus','Jul 20, 2021','Sep 21, 2021','C','F'),
+  (166,'Candace','Oscar','Hermione','Jul 28, 2022','Jul 30, 2021','C','F'),
+  (167,'Althea','Jermaine','Tatum','Feb 6, 2021','Jan 19, 2023','C','F'),
+  (168,'Quon','Declan','Shelley','Mar 12, 2021','Mar 16, 2021','C','F'),
+  (169,'Noel','Jarrod','Dahlia','Jul 10, 2021','Aug 10, 2021','C','F'),
+  (170,'Breanna','Clark','Leah','May 19, 2021','Apr 29, 2022','C','F');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (171,'Ria','Clayton','Eve','Nov 21, 2022','Dec 12, 2021','C','F'),
+  (172,'Hedy','Kevin','Minerva','May 9, 2021','Oct 5, 2021','C','F'),
+  (173,'Piper','Trevor','Jamalia','Nov 15, 2021','Apr 29, 2021','C','F'),
+  (174,'Margaret','Eagan','Gretchen','Feb 27, 2022','Nov 7, 2021','C','F'),
+  (175,'India','Christopher','Chiquita','Aug 25, 2022','Oct 17, 2021','C','F'),
+  (176,'Amity','Vernon','Naomi','Feb 3, 2021','Aug 25, 2022','C','F'),
+  (177,'Hermione','Preston','Summer','May 11, 2021','Dec 20, 2021','C','F'),
+  (178,'Remedios','Amir','Grace','Apr 16, 2022','Mar 4, 2021','C','F'),
+  (179,'Clementine','Tobias','Hedwig','Jul 22, 2022','Sep 15, 2021','C','F'),
+  (180,'Ariana','Holmes','Laurel','Mar 5, 2021','Aug 3, 2021','C','F');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (181,'Inga','Walker','Marcia','Feb 8, 2021','Jan 23, 2022','C','F'),
+  (182,'Danielle','Grady','Felicia','Sep 12, 2021','Oct 24, 2021','C','F'),
+  (183,'Nichole','Rogan','Rhiannon','Jan 25, 2021','Jul 18, 2021','C','F'),
+  (184,'Gillian','Daquan','Aurora','May 12, 2022','Feb 12, 2022','C','F'),
+  (185,'Savannah','Kamal','Isabelle','Aug 11, 2022','Oct 14, 2022','C','F'),
+  (186,'Sybil','Barrett','Zia','Jul 14, 2022','Sep 9, 2022','C','F'),
+  (187,'Vera','Clarke','Jaden','Jun 1, 2022','Dec 3, 2022','C','F'),
+  (188,'Zelenia','Kamal','Sandra','Apr 29, 2022','May 25, 2021','C','F'),
+  (189,'Megan','Nicholas','Yvonne','May 10, 2021','Dec 7, 2021','C','F'),
+  (190,'Audra','Keaton','Jescie','Feb 28, 2021','Aug 2, 2021','C','F');
+INSERT INTO ALUNO (matricula,nome,nomepai,nomemae,dtnascimento,dtmatricula,turma,sexo)
+VALUES
+  (191,'Shellie','Vernon','Kevyn','Dec 30, 2022','Jul 13, 2021','C','F'),
+  (192,'Myra','Burton','Ursula','Oct 6, 2022','Aug 25, 2022','C','F'),
+  (193,'Darrel','Raphael','Hollee','Dec 18, 2021','Nov 23, 2022','C','F'),
+  (194,'Stella','Gray','Desirae','Nov 26, 2022','Dec 1, 2022','C','F'),
+  (195,'Jaime','Hyatt','Nelle','Aug 3, 2022','Apr 8, 2021','C','F'),
+  (196,'Cheryl','Deacon','Adena','Sep 3, 2021','Oct 13, 2022','C','F'),
+  (197,'Colette','Paul','Cleo','Oct 17, 2021','Sep 21, 2021','C','F'),
+  (198,'Robin','Porter','Eliana','Apr 17, 2021','May 14, 2021','C','F'),
+  (199,'Nayda','Nehru','Flavia','Dec 18, 2022','Dec 3, 2022','C','F'),
+  (200,'Ori','Dean','Idona','Jan 26, 2021','Mar 28, 2021','C','F');
+
+
+/* 1 - Retornar todos alunos ordenados por turmas, por nome e em ordem alfabética */
+SELECT nometurma,nome FROM TURMA
+INNER JOIN ALUNO
+ON TURMA.nometurma = ALUNO.turma
+ORDER BY nometurma,nome;
+
+/*2 - Retornar as turmas em que não existem alunos */
+SELECT DISTINCT nometurma FROM TURMA 
+LEFT JOIN ALUNO ON nometurma = turma
+WHERE turma IS NULL;
+
+/*3 - Retornar as especialidades dos professores que possuem turmas */
+SELECT DISTINCT NomeEspecialidade FROM ESPECIALIDADE, TURMA
+WHERE professor IS NOT NULL;
+
+/*4 - Retornar a idade média dos professores que possuem turma */
+SELECT AVG(EXTRACT(YEAR from AGE(CURRENT_DATE, dtnascimento))) as age
+FROM PROFESSOR;
+
+/*5 - Retornar a quantidade de alunos de cada sexo por turma */
+SELECT turma,sexo, COUNT(*)
+FROM ALUNO
+GROUP BY turma,sexo;
