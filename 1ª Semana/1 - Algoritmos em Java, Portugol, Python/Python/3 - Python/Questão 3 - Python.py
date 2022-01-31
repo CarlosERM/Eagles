@@ -1,7 +1,22 @@
 # Questão 3 - O usuário vai informar um valor e o programa vai retornar se este numero é primo
 
-# Input
-valor = int(input('Digite um valor: '))
+numeroInteiro = False
+
+# Verifica se é um número válido, se não pede novamente
+while (numeroInteiro == False):
+    
+    valor = input('Digite um valor válido (número natural) ')
+
+    try:
+        int(valor)
+        numeroInteiro = True
+
+    except ValueError:
+         numeroInteiro = False
+
+valor = int(valor)
+if valor < 0:
+    valor *= -1
 
 # Contagem do número de divisíveis
 contador = 0
@@ -9,7 +24,7 @@ contador = 0
 print('\n{} é divisível pelos seguintes algarismos:'.format(valor),end='')
 
 # Divisão do valor de entrada por todos algarismos anteriores a ele
-for c in range(1, valor+1):
+for c in range(1, valor + 1):
 
     if valor%c == 0:
         print('[{}] '.format(c),end='')
