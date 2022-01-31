@@ -10,11 +10,11 @@
 
 - Carlos Eduardo
 
-- Gustavo
+- Gustavo Mendes
 
 - Priscila Ramos
 
-- Pedro Florêncio
+- Pedro Florencio
 
 - Yan Stivaletti
 
