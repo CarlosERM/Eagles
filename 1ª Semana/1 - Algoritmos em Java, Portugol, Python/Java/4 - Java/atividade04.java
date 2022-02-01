@@ -6,26 +6,33 @@
 // 6! = 6 · 5 · 4 · 3 · 2 · 1 = 720
 // 7! = 7 · 6 · 5 · 4 · 3 · 2 · 1 = 5040
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class atividade04 {
   public static void main(String[] args) {
 
-    int input;
-    int fib = 1;
-
+    long input;
+    BigInteger fib = new BigInteger(1 + "");
     Scanner scan = new Scanner(System.in);
 
     do {
     System.out.print("Digite um número para calcularmos o seu fatorial: ");
-    input = scan.nextInt();
+    input = scan.nextLong();
+
+    if(input < 1) {
+      System.out.println("\nValor inválido(O valor deve ser maior que 1).");
+    }
     } while (input < 1);
 
-    for (int i = 1; i <= input; i++) {
-      fib = fib * i;           
+    for (long i = 1; i <= input; i++) {
+      BigInteger iBig = new BigInteger(i + "");
+      fib = fib.multiply(iBig);           
     }
-
+    System.out.println("-----------------------------------");
     System.out.println("O fatorial de " + input + ": " + fib);
+    System.out.println("-----------------------------------");
+
 
     scan.close();
   }  
