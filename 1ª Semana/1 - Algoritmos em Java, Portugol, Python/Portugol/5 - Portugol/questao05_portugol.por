@@ -10,33 +10,38 @@ programa{
 		/*Input de valores e conversão*/
 		escreva("Digite o valor do álcool: ")
 		leia(etanol)
-
+		se (etanol < 0){
+			etanol *= -1
+			escreva("Vou interpretar que você disse ", etanol, "\n")
+		}
+		
 		escreva("Digite o valor da gasolina: ")
 		leia(gasolina)
+		se (gasolina < 0){
+			gasolina *= -1
+			escreva("Vou interpretar que você disse ", gasolina, "\n")
+		}
+		
 		calculo = etanol / gasolina
 		
 		/*Arredondando*/
 		arredondado = mat.arredondar(calculo*100, 1)
-
+		
 		/*Verificando e imprimindo resultados*/
+		escreva("\nCompensa abastecer com ")
 		se( calculo > 0.7){
-			escreva("\nCom ", arredondado, "% de diferença, compensa abastecer com gasolina")
+			escreva("gasolina")
 		}senao{
-			escreva("\nCom ", arredondado, "% de diferença, compensa abastecer com etanol")
+			escreva("etanol")
 		}
 	}
 }
-
-/*
-	7.00
-	
-*/
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 377; 
+ * @POSICAO-CURSOR = 821; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

@@ -1,12 +1,19 @@
 programa {
 	funcao inicio() {
 		/*Declaração de variáveis*/
-		inteiro valor, maior = 0, menor = 0, contador = 1
+		real valor, maior = 0.0, menor = 0.0
+		inteiro contador = 1
 
 		/*Input de valores e checando o maior e menor*/
 		faca{
-		    escreva("Digite o ", contador,"º valor: ")
-		    leia(valor)
+		    faca{
+		    	   escreva("Digite o ", contador,"° valor: ")
+		        leia(valor)
+		        se (valor < -1){
+		        	escreva("Valor negativo não aceito, digite um valor válido\n")
+		        }
+		    }enquanto(valor < -1)
+		    
 		    se(valor == -1){
 		        pare
 		    } senao se(contador == 1){
@@ -22,7 +29,12 @@ programa {
 		} enquanto(valor != -1)
 
 		/*Printando os resultados*/
-		escreva("O maior valor foi: ", maior,", e o menor valor foi: ", menor,".")
+		se (contador == 1){
+			escreva("Nenhum valor válido digitado.")
+		}senao{
+			escreva("O maior valor foi: ", maior,", e o menor valor foi: ", menor,".")			
+		}
+
 	}
 }
 
@@ -31,7 +43,7 @@ programa {
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 208; 
+ * @POSICAO-CURSOR = 674; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
