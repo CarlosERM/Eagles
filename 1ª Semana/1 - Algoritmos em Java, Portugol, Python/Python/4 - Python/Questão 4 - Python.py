@@ -5,7 +5,21 @@
 
 from math import factorial
 
-valor = int(input('Digite o valor que quer calcular o fatorial: '))
+numeroNegativoFloat = True
+
+while numeroNegativoFloat == True:
+    
+    valor = input('Digite um número positivo e inteiro que se quer calcular o fatorial: ')
+
+    try:
+        valor = int(valor)
+        if valor < 0:
+            numeroNegativoFloat = True
+        else:
+            numeroNegativoFloat = False
+    
+    except ValueError:
+        numeroNegativoFloat = True
 
 print('\nModo 1 (biblioteca): O valor de {}! é {}\n'.format(valor,factorial(valor)))
 

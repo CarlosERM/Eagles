@@ -8,13 +8,12 @@ while (numeroInteiro == False):
     valor = input('Digite um valor válido (número natural) ')
 
     try:
-        int(valor)
+        valor = int(valor)
         numeroInteiro = True
 
     except ValueError:
          numeroInteiro = False
 
-valor = int(valor)
 if valor < 0:
     valor *= -1
 
