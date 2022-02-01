@@ -4,20 +4,29 @@ import java.util.Scanner;
 public class atividade02 {
 
       public static void main(String[] args) {
-        int menor = Integer.MAX_VALUE, maior = Integer.MIN_VALUE, input, i = 0;
+        long menor = Integer.MAX_VALUE, maior = Integer.MIN_VALUE, i = 0;
+        double input;
+        long resposta;
         Scanner scan = new Scanner(System.in);
         do {
-            System.out.print("Digite o " + (i + 1) + "º: ");
-            input = scan.nextInt();
-            
-            if(menor > input && input != -1) {
-                menor = input;
+
+
+            do {
+                System.out.print("Digite o " + (i + 1) + "º: ");
+                input = scan.nextDouble();
+                System.out.println(input);
+                
+                resposta = (long) input;
+                System.out.println((double)resposta);
+            } while(input < 0 || input != (double) resposta);
+
+            if(menor > resposta && resposta != -1) {
+                menor = resposta;
             }
 
-            if(maior < input) {
-                maior = input;
+            if(maior < resposta) {
+                maior = resposta;
             }
-
             i++;
         } while(input != -1);
 
