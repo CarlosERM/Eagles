@@ -8,29 +8,38 @@ public class atividade03 {
       public static void main(String[] args) {
         
         Scanner scan = new Scanner(System.in);
-        int input;
+        double input;
+        long resposta;
         int div = 0;
+        boolean repetiu = false;
 
         do {
-          System.out.print("Digite um número: ");
-          input = scan.nextInt();
-
+          if(repetiu) {
+            System.out.println("Número inválido.");
+            System.out.print("Digite um número válido: ");
+            input = scan.nextDouble();
+          } else {
+            System.out.print("Digite um número: ");
+            input = scan.nextDouble();
+  
+          }
+     
+          resposta = (long) input;
           for (int i = 1; i <= input; i++) {
             if (input % i == 0) { 
-            div++;
+              div++;
             }
-          }  
-            if (div == 2) {
-          System.out.println("O número " + input + " é primo!");
-          }  else {
-          System.out.println("O número " + input + " não é primo!");       
-      } 
-      
-      div = 0;         
+          }
 
-    } while (input >= 0);
+          if(repetiu == false) repetiu = !repetiu;
 
-    scan.close();
+        } while (resposta <= 0 || input % 1 != 0);
 
+    if (div == 2) {
+      System.out.println("O número " + resposta + " é primo!");
+    }  else {
+      System.out.println("O número " + resposta + " não é primo!"); 
+      scan.close();
+    }
   }
 }
