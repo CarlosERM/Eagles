@@ -30,7 +30,7 @@ print('\nModo 2 (iterativo): O valor de {}! é {}\n'.format(valor,fatorialIterat
 
 def fatorialRecursivo(numero):
     if numero == 0:
-        return 0
+        return 1
     if numero == 1:
         return 1
     if numero > 1:
