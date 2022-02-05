@@ -73,11 +73,15 @@ Apresentar os principais conceitos dos componentes como:
 	- Docker Compose.
 	- Docker Swarm.
 Apresentar a execução do container com a imagem "Hello World".
- 10. Pratica para construir uma **API REST** com **CRUD** de usuário, sem conectar com o **Banco de Dados**.
-	 - Construir API REST em qualquer linguagem e demonstrar ela funcionando. Deve ser feito um CRUD de usuário com os campos id, nome, sobrenome e data de nascimento. Não haverá conexão com o banco de dados, os usuários ficarão salvos em memória, apenas durante a execução do programa.
 
- 11. Conectar a **API** com o **Banco de Dados** de forma totalmente funcional.
+ 10. Prática para construir uma **API REST** com **CRUD** de usuário.
 
- 12. Fazer uma página que se conecte com a **API REST** desenvolvida e faça o **CRUD** de usuário pela interface.
+ 11. Corrigir programas da atividade 1 entregues na primeira sprint.
+
+ 12. Fazer uma página que se conecte com a **API REST** desenvolvida.
+
  
  13. NodeRed.
+
+
+
